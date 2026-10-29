@@ -12,7 +12,9 @@ Public Sub AtualizarPlanejamento()
     Dim prazoCol As Long
     Dim oldScreenUpdating As Boolean
 
+    oldScreenUpdating = Application.ScreenUpdating
     On Error GoTo TrataErro
+
     Set wb = ThisWorkbook
     Set wsEntrada = wb.Worksheets("Entrada")
     Set tabela = wsEntrada.ListObjects("tbOrdens")
@@ -22,12 +24,12 @@ Public Sub AtualizarPlanejamento()
     On Error Resume Next
     Set wsSaida = wb.Worksheets("Planejamento")
     On Error GoTo TrataErro
+    Err.Clear
     If wsSaida Is Nothing Then
         Set wsSaida = wb.Worksheets.Add(After:=wb.Worksheets(wb.Worksheets.Count))
         wsSaida.Name = "Planejamento"
     End If
 
-    oldScreenUpdating = Application.ScreenUpdating
     Application.ScreenUpdating = False
     wsSaida.Cells.Clear
     tabela.HeaderRowRange.Copy Destination:=wsSaida.Range("A1")
@@ -35,7 +37,7 @@ Public Sub AtualizarPlanejamento()
 
     If Not tabela.DataBodyRange Is Nothing Then
         For Each linha In tabela.ListRows
-            If LCase$(Trim$(CStr(linha.Range.Cells(1, statusCol).Value))) <> LCase$("Concluída") Then
+            If LCase$(Trim$(CStr(linha.Range.Cells(1, statusCol).Value))) <> "concluida" Then
                 linha.Range.Copy Destination:=wsSaida.Cells(destino, 1)
                 destino = destino + 1
             End If
@@ -55,11 +57,13 @@ Public Sub AtualizarPlanejamento()
 
     wsSaida.Columns.AutoFit
     Application.ScreenUpdating = oldScreenUpdating
+    Application.CutCopyMode = False
     MsgBox CStr(destino - 2) & " itens abertos enviados para Planejamento.", vbInformation
     Exit Sub
 
 TrataErro:
     Application.ScreenUpdating = oldScreenUpdating
-    MsgBox "Não foi possível atualizar o planejamento: " & Err.Description, vbExclamation
+    Application.CutCopyMode = False
+    MsgBox "Nao foi possivel atualizar o planejamento: " & Err.Description, vbExclamation
 End Sub
 
