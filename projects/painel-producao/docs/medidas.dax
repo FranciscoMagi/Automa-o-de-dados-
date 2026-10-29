@@ -1,0 +1,10 @@
+Ordens = COUNTROWS(FatoProducao)
+Ordens Abertas = CALCULATE([Ordens], FatoProducao[status] <> "Concluída")
+Quantidade Planejada = SUM(FatoProducao[quantidade_planejada])
+Quantidade Produzida = SUM(FatoProducao[quantidade_produzida])
+Avanço % = DIVIDE([Quantidade Produzida], [Quantidade Planejada], 0)
+Ordens Atrasadas =
+  CALCULATE([Ordens], FatoProducao[status] <> "Concluída", FatoProducao[data_prevista] < TODAY())
+Horas Planejadas = SUM(FatoProducao[horas_planejadas])
+Horas Realizadas = SUM(FatoProducao[horas_realizadas])
+Utilização Horas % = DIVIDE([Horas Realizadas], [Horas Planejadas], 0)

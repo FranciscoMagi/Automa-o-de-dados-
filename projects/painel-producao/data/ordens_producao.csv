@@ -1,0 +1,19 @@
+ordem_id,produto,setor,linha,data_abertura,data_prevista,data_real,quantidade_planejada,quantidade_produzida,horas_planejadas,horas_realizadas,status
+OP-DEMO-001,Produto A,Corte,Linha 1,2026-09-01,2026-09-05,2026-09-04,120,120,8,7,Concluída
+OP-DEMO-002,Produto B,Dobra,Linha 2,2026-09-02,2026-09-06,2026-09-08,80,80,6,7,Concluída
+OP-DEMO-003,Produto C,Montagem,Linha 1,2026-09-03,2026-09-09,,150,90,10,7,Em produção
+OP-DEMO-004,Produto A,Pintura,Linha 3,2026-09-04,2026-09-10,2026-09-09,100,100,8,8,Concluída
+OP-DEMO-005,Produto D,Corte,Linha 2,2026-09-05,2026-09-12,,90,45,7,4,Em produção
+OP-DEMO-006,Produto B,Dobra,Linha 1,2026-09-06,2026-09-13,2026-09-12,110,110,8,7,Concluída
+OP-DEMO-007,Produto C,Montagem,Linha 3,2026-09-07,2026-09-14,,70,28,6,3,Em produção
+OP-DEMO-008,Produto D,Pintura,Linha 2,2026-09-08,2026-09-15,2026-09-16,130,130,9,10,Concluída
+OP-DEMO-009,Produto A,Corte,Linha 1,2026-09-09,2026-09-17,,95,40,7,3,Em produção
+OP-DEMO-010,Produto B,Dobra,Linha 3,2026-09-10,2026-09-18,2026-09-17,105,105,8,8,Concluída
+OP-DEMO-011,Produto C,Montagem,Linha 2,2026-09-11,2026-09-19,,160,80,12,6,Em produção
+OP-DEMO-012,Produto D,Pintura,Linha 1,2026-09-12,2026-09-20,,85,0,6,0,Planejada
+OP-DEMO-013,Produto A,Corte,Linha 3,2026-09-13,2026-09-21,2026-09-20,140,140,10,9,Concluída
+OP-DEMO-014,Produto B,Dobra,Linha 2,2026-09-14,2026-09-22,,75,30,5,2,Em produção
+OP-DEMO-015,Produto C,Montagem,Linha 1,2026-09-15,2026-09-23,,115,60,9,5,Em produção
+OP-DEMO-016,Produto D,Pintura,Linha 3,2026-09-16,2026-09-24,2026-09-23,125,125,9,8,Concluída
+OP-DEMO-017,Produto A,Corte,Linha 2,2026-09-17,2026-09-25,,100,20,7,2,Em produção
+OP-DEMO-018,Produto B,Dobra,Linha 1,2026-09-18,2026-09-26,,90,0,6,0,Planejada

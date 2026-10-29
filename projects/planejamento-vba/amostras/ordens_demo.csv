@@ -1,0 +1,6 @@
+ordem_id,produto,setor,data_prevista,quantidade,status
+DEMO-201,Produto A,Corte,2026-11-02,40,Em aberto
+DEMO-202,Produto B,Montagem,2026-11-03,25,Em aberto
+DEMO-203,Produto C,Inspecao,2026-11-04,30,Concluída
+DEMO-204,Produto A,Montagem,2026-11-05,55,Em aberto
+DEMO-205,Produto D,Corte,2026-11-06,20,Planejada

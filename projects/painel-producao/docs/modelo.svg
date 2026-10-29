@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 900 220" role="img" aria-labelledby="title desc">
+<title id="title">Modelo conceitual da demonstração</title>
+<desc id="desc">Tabela fato de produção e dimensões conceituais de produto, calendário e setor.</desc>
+<rect width="900" height="220" fill="#f6f8fa"/>
+<g font-family="Arial,sans-serif" text-anchor="middle">
+<g fill="#fff" stroke="#246b45" stroke-width="2"><rect x="340" y="70" width="220" height="90" rx="10"/><rect x="40" y="75" width="180" height="80" rx="10"/><rect x="360" y="15" width="180" height="40" rx="10"/><rect x="680" y="75" width="180" height="80" rx="10"/></g>
+<g stroke="#64748b" stroke-width="3"><path d="M220 115h120M450 55v15M560 115h120"/></g>
+<g fill="#0f172a"><text x="130" y="108" font-size="18">Dimensão Produto</text><text x="130" y="132" font-size="13">produto</text><text x="450" y="100" font-size="18">Fato Produção</text><text x="450" y="125" font-size="13">ordens · quantidades · horas</text><text x="450" y="41" font-size="16">Dimensão Calendário</text><text x="770" y="108" font-size="18">Dimensão Setor</text><text x="770" y="132" font-size="13">setor · linha</text></g></g></svg>

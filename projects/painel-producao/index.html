@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Painel demonstrativo com dados de produção fictícios.">
+  <title>Painel de Produção | Demo</title><link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+</head>
+<body>
+<header class="topbar"><div><p class="eyebrow">PROJETO DEMONSTRATIVO</p><h1>Painel de produção</h1><p class="subtitle">Acompanhamento de ordens em um cenário inteiramente fictício.</p></div><span class="badge">Dados sintéticos</span></header>
+<main class="container">
+  <section class="filters" aria-label="Filtros"><label>Setor<select id="filter-sector"><option value="">Todos os setores</option></select></label><label>Situação<select id="filter-status"><option value="">Todas as situações</option></select></label><label class="search">Buscar<input id="search" type="search" placeholder="Ordem ou produto"></label></section>
+  <section id="kpis" class="kpis" aria-live="polite"></section>
+  <section class="panel"><div class="section-head"><div><h2>Ordens</h2><p id="result-count">Carregando dados…</p></div></div><div class="table-scroll"><table><thead><tr><th>Ordem fictícia</th><th>Produto</th><th>Setor</th><th>Previsão</th><th>Situação</th><th>Avanço</th></tr></thead><tbody id="orders"></tbody></table></div><p id="empty" class="empty" hidden>Nenhuma ordem corresponde aos filtros.</p></section>
+  <p class="footnote">Amostra criada para portfólio. Os registros não representam operações reais.</p>
+</main>
+</body></html>
