@@ -1,59 +1,46 @@
-# Portfólio de Automação e Dados
+# Francisco Gabriel Magi
 
-Portfólio técnico de Francisco Gabriel Magi com protótipos pequenos, executáveis e documentados em Python, Excel VBA, JavaScript e PostgreSQL.
+Projetos demonstrativos em automação, planilhas, JavaScript e SQL.
 
-![Capa do portfólio](assets/portfolio-banner.svg)
+Este repositório reúne quatro exemplos pequenos para mostrar código que dá para abrir e experimentar. As demonstrações foram feitas separadamente e usam dados inventados; não incluí arquivos, telas ou código do trabalho.
 
-> **Privacidade:** demonstrações recriadas para portfólio. Nenhum código, tela, arquivo, macro ou dado de empresa foi copiado. Todas as bases são fictícias.
+## Projetos
 
-## Veja o portfólio
+| Projeto | Ferramentas | Para ver |
+| --- | --- | --- |
+| Painel de produção | HTML, CSS, JavaScript | [Demo](projects/painel-producao/index.html) · [README](projects/painel-producao/README.md) |
+| Monitor de arquivos | Python | [Código](projects/monitor-arquivos/monitor.py) · [README](projects/monitor-arquivos/README.md) |
+| Planejamento semanal | Excel VBA | [Módulo](projects/planejamento-vba/AtualizarPlanejamento.bas) · [README](projects/planejamento-vba/README.md) |
+| Consultas de produção | PostgreSQL | [SQL](projects/consultas-sql/consultas.sql) · [README](projects/consultas-sql/README.md) |
 
-A página `index.html` é o site estático do portfólio: apresenta os projetos, permite filtrar por tecnologia e funciona sem bibliotecas ou chamadas externas.
+## Abrir o site localmente
 
-Para abrir localmente, na raiz do repositório execute:
+Na raiz desta pasta, execute:
 
 ```bash
 python -m http.server 8000
 ```
 
-Acesse `http://localhost:8000/`.
-
-## Projetos em destaque
-
-| Projeto | Stack | Demonstra |
-|---|---|---|
-| [Painel de Produção](projects/painel-producao/) | HTML, CSS, JavaScript | filtros, busca, indicadores derivados de CSV |
-| [Monitor de Arquivos](projects/monitor-arquivos/) | Python 3.10+ | SHA-256, CLI, logging JSONL, modo contínuo |
-| [Planejamento Semanal](projects/planejamento-vba/) | Excel VBA | filtrar dados, gerar aba de saída e ordenar por prazo |
-| [Consultas SQL](projects/consultas-sql/) | PostgreSQL 14+ | agregações, CTE, `FILTER`, `LAG` e funções de janela |
-
-Cada pasta tem um README com requisitos, execução, estrutura e limitações.
+Depois abra `http://localhost:8000/`.
 
 ## Publicar no GitHub
 
-1. Crie no GitHub um repositório vazio chamado `portfolio-automacao-dados` (sem gerar outro README ou licença).
-2. No terminal, nesta pasta, conecte o remoto e envie a branch `main`:
+Crie no GitHub um repositório vazio chamado `portfolio-automacao-dados`. Na raiz desta pasta, conecte e envie a branch `main`:
 
 ```bash
 git remote add origin https://github.com/SEU-USUARIO/portfolio-automacao-dados.git
 git push -u origin main
 ```
 
-Troque `SEU-USUARIO` pelo seu nome de usuário do GitHub. Antes de criar novos commits, configure o nome e o e-mail público `noreply` recomendado pelo GitHub para não usar um e-mail do trabalho.
+Troque `SEU-USUARIO` pelo seu usuário. Antes de criar novos commits, configure o nome e o e-mail público `noreply` indicado nas configurações do GitHub; não use o e-mail do trabalho.
 
-## Publicar o site como GitHub Pages
+Para publicar o `index.html` como GitHub Pages, abra **Settings → Pages** e selecione a branch `main` e a pasta `/ (root)` como fonte.
 
-Depois do push, abra **Settings → Pages**, selecione **Deploy from a branch**, a branch `main` e a pasta `/ (root)`. O site usa apenas arquivos estáticos desta raiz; não precisa de build ou instalação de dependências.
+## Observações
 
-## Privacidade e escopo
+- O painel é uma demonstração web, não um `.pbix`.
+- A macro VBA precisa de uma tabela chamada `tbOrdens`; os passos estão no README do projeto.
+- O monitor acompanha um arquivo por vez e grava o log apenas localmente.
+- Cada projeto tem seu próprio README com requisitos e limitações.
 
-- Dados de demonstração inventados, marcados com identificadores `DEMO`.
-- Sem serviços externos, chaves, tokens ou endereços internos.
-- O painel analítico é uma demonstração web, não um arquivo Power BI `.pbix`.
-- A macro VBA e o monitor Python são recriações didáticas e independentes.
-
-## Licença
-
-MIT. Veja [LICENSE](LICENSE).
-
-
+MIT — consulte [LICENSE](LICENSE).
