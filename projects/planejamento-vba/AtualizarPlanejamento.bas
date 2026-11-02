@@ -37,7 +37,7 @@ Public Sub AtualizarPlanejamento()
 
     If Not tabela.DataBodyRange Is Nothing Then
         For Each linha In tabela.ListRows
-            If LCase$(Trim$(CStr(linha.Range.Cells(1, statusCol).Value))) <> "concluida" Then
+            If Not EhConcluida(linha.Range.Cells(1, statusCol).Value) Then
                 linha.Range.Copy Destination:=wsSaida.Cells(destino, 1)
                 destino = destino + 1
             End If
@@ -67,3 +67,11 @@ TrataErro:
     MsgBox "Nao foi possivel atualizar o planejamento: " & Err.Description, vbExclamation
 End Sub
 
+' Aceita "Concluida" e "Conclu(i com acento)da", em qualquer caixa. O i acentuado e montado
+' com ChrW para o modulo continuar 100% ASCII e nao corromper ao importar no editor VBA.
+Private Function EhConcluida(ByVal valor As Variant) As Boolean
+    Dim texto As String
+    texto = LCase$(Trim$(CStr(valor)))
+    texto = Replace(texto, ChrW$(237), "i")
+    EhConcluida = (texto = "concluida")
+End Function
