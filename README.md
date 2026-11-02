@@ -1,11 +1,11 @@
 # Francisco Gabriel Magi · Automação e dados
 
-[![CI](https://github.com/SEU-USUARIO/portfolio-automacao-dados/actions/workflows/ci.yml/badge.svg)](https://github.com/SEU-USUARIO/portfolio-automacao-dados/actions/workflows/ci.yml)
+[![CI](https://github.com/FranciscoMagi/Automa-o-de-dados-/actions/workflows/ci.yml/badge.svg)](https://github.com/FranciscoMagi/Automa-o-de-dados-/actions/workflows/ci.yml)
 [![Licença: MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-green.svg)](LICENSE)
 
 Quatro projetos pequenos, executáveis e com testes automatizados, em JavaScript, SQL, Python e Excel VBA. Todos usam **dados fictícios**; nenhum arquivo, tela ou código de empresa está aqui.
 
-**[Ver o site do portfólio](https://SEU-USUARIO.github.io/portfolio-automacao-dados/)** · **[Abrir o painel interativo](https://SEU-USUARIO.github.io/portfolio-automacao-dados/projects/painel-producao/)**
+**[Ver o site do portfólio](https://franciscomagi.github.io/Automa-o-de-dados-/)** · **[Abrir o painel interativo](https://franciscomagi.github.io/Automa-o-de-dados-/projects/painel-producao/)**
 
 ![Painel de produção com indicadores, gráfico por setor e tabela](projects/painel-producao/docs/painel.png)
 
@@ -13,7 +13,7 @@ Quatro projetos pequenos, executáveis e com testes automatizados, em JavaScript
 
 | Projeto | O que demonstra | Ferramentas | Ver |
 | --- | --- | --- | --- |
-| Painel de produção | Indicadores, filtros, gráfico e tabela ordenável a partir de um CSV; lógica separada da interface e testada | HTML, CSS, JavaScript | [Demo](https://SEU-USUARIO.github.io/portfolio-automacao-dados/projects/painel-producao/) · [README](projects/painel-producao/README.md) |
+| Painel de produção | Indicadores, filtros, gráfico e tabela ordenável a partir de um CSV; lógica separada da interface e testada | HTML, CSS, JavaScript | [Demo](https://franciscomagi.github.io/Automa-o-de-dados-/projects/painel-producao/) · [README](projects/painel-producao/README.md) |
 | Consultas de produção | Tabela de fatos, agregações, CTE, funções de janela e `FILTER`; resultados conferidos em PostgreSQL 16 | PostgreSQL | [SQL](projects/consultas-sql/consultas.sql) · [Resultados](projects/consultas-sql/resultados.md) · [README](projects/consultas-sql/README.md) |
 | Monitor de arquivos | CLI que detecta alterações por SHA-256, com log sem conteúdo do arquivo, tratamento de erros e testes unitários | Python | [Código](projects/monitor-arquivos/monitor.py) · [README](projects/monitor-arquivos/README.md) |
 | Planejamento semanal | Macro que leva itens em aberto para uma aba de planejamento e ordena por prazo | Excel VBA | [Módulo](projects/planejamento-vba/AtualizarPlanejamento.bas) · [README](projects/planejamento-vba/README.md) |
