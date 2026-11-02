@@ -1,16 +1,86 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Painel demonstrativo com dados de produção fictícios.">
-  <title>Painel de Produção | Demo</title><link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Painel interativo com dados fictícios de ordens de produção: filtros, indicadores, gráfico por setor e tabela ordenável.">
+  <title>Painel de produção | Demonstração</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+  <script>
+    // Módulos ES e fetch não funcionam em arquivos abertos direto do disco (file://).
+    if (location.protocol === "file:") {
+      document.addEventListener("DOMContentLoaded", () => {
+        const box = document.getElementById("message");
+        box.textContent = "Abra o painel por um servidor local: na raiz do repositório, rode python -m http.server 8000 e acesse http://localhost:8000/projects/painel-producao/.";
+        box.hidden = false;
+      });
+    }
+  </script>
 </head>
 <body>
-<header class="topbar"><div><p class="eyebrow">PROJETO DEMONSTRATIVO</p><h1>Painel de produção</h1><p class="subtitle">Acompanhamento de ordens em um cenário inteiramente fictício.</p></div><span class="badge">Dados sintéticos</span></header>
-<main class="container">
-  <section class="filters" aria-label="Filtros"><label>Setor<select id="filter-sector"><option value="">Todos os setores</option></select></label><label>Situação<select id="filter-status"><option value="">Todas as situações</option></select></label><label class="search">Buscar<input id="search" type="search" placeholder="Ordem ou produto"></label></section>
-  <section id="kpis" class="kpis" aria-live="polite"></section>
-  <section class="panel"><div class="section-head"><div><h2>Ordens</h2><p id="result-count">Carregando dados…</p></div></div><div class="table-scroll"><table><thead><tr><th>Ordem fictícia</th><th>Produto</th><th>Setor</th><th>Previsão</th><th>Situação</th><th>Avanço</th></tr></thead><tbody id="orders"></tbody></table></div><p id="empty" class="empty" hidden>Nenhuma ordem corresponde aos filtros.</p></section>
-  <p class="footnote">Amostra criada para portfólio. Os registros não representam operações reais.</p>
-</main>
-</body></html>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">PROJETO DEMONSTRATIVO</p>
+      <h1>Painel de produção</h1>
+      <p class="subtitle">Acompanhamento de ordens em um cenário inteiramente fictício.</p>
+    </div>
+    <div class="topbar-actions">
+      <span class="badge">Dados sintéticos</span>
+      <a class="back" href="../../">← Voltar ao portfólio</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <noscript><p class="message">Este painel precisa de JavaScript para carregar e filtrar os dados.</p></noscript>
+    <p id="message" class="message" role="alert" hidden></p>
+
+    <section class="filters" aria-label="Filtros">
+      <label>Setor
+        <select id="filter-sector"><option value="">Todos os setores</option></select>
+      </label>
+      <label>Situação
+        <select id="filter-status"><option value="">Todas as situações</option></select>
+      </label>
+      <label class="search">Buscar
+        <input id="search" type="search" placeholder="Ordem ou produto">
+      </label>
+      <label>Data de referência
+        <input id="ref-date" type="date" min="2026-09-01" max="2026-10-31">
+      </label>
+    </section>
+
+    <section id="kpis" class="kpis" aria-label="Indicadores" aria-live="polite"></section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>Avanço por setor</h2>
+        <p>Quantidade produzida em relação à planejada, nas ordens filtradas.</p>
+      </div>
+      <div id="sector-chart" class="chart"></div>
+      <p id="insight" class="insight"></p>
+    </section>
+
+    <section class="panel">
+      <div class="section-head">
+        <h2>Ordens</h2>
+        <p id="result-count">Carregando dados…</p>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <caption class="sr-only">Ordens de produção fictícias; use os botões do cabeçalho para ordenar.</caption>
+          <thead id="table-head"></thead>
+          <tbody id="orders"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="empty" hidden>Nenhuma ordem corresponde aos filtros.</p>
+    </section>
+
+    <p class="footnote">
+      Amostra criada para portfólio; os registros não representam operações reais.
+      Os mesmos dados alimentam as <a href="../consultas-sql/consultas.sql">consultas SQL</a>
+      e as <a href="docs/medidas.dax">medidas DAX</a>.
+    </p>
+  </main>
+</body>
+</html>

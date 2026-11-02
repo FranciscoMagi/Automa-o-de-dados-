@@ -1,10 +1,39 @@
+// Medidas equivalentes às do painel web (projects/painel-producao) e às consultas SQL.
+// Tabela de fatos: FatoProducao, carregada de data/ordens_producao.csv.
+
 Ordens = COUNTROWS(FatoProducao)
 Ordens Abertas = CALCULATE([Ordens], FatoProducao[status] <> "Concluída")
+Ordens Concluídas = CALCULATE([Ordens], FatoProducao[status] = "Concluída")
+
 Quantidade Planejada = SUM(FatoProducao[quantidade_planejada])
 Quantidade Produzida = SUM(FatoProducao[quantidade_produzida])
 Avanço % = DIVIDE([Quantidade Produzida], [Quantidade Planejada], 0)
+
+// A amostra é de setembro/2026; com TODAY() toda ordem aberta apareceria como vencida.
+Data Referência = DATE(2026, 9, 24)
+
 Ordens Atrasadas =
-  CALCULATE([Ordens], FatoProducao[status] <> "Concluída", FatoProducao[data_prevista] < TODAY())
-Horas Planejadas = SUM(FatoProducao[horas_planejadas])
-Horas Realizadas = SUM(FatoProducao[horas_realizadas])
-Utilização Horas % = DIVIDE([Horas Realizadas], [Horas Planejadas], 0)
+VAR ref = [Data Referência]
+RETURN
+    CALCULATE(
+        [Ordens],
+        FatoProducao[status] <> "Concluída",
+        FatoProducao[data_prevista] < ref
+    )
+
+Ordens No Prazo =
+COUNTROWS(
+    FILTER(
+        FatoProducao,
+        FatoProducao[status] = "Concluída"
+            && FatoProducao[data_real] <= FatoProducao[data_prevista]
+    )
+)
+Entregas no Prazo % = DIVIDE([Ordens No Prazo], [Ordens Concluídas], 0)
+
+// Horas só de ordens concluídas: horas parciais de ordens em andamento distorceriam a razão.
+Horas Planejadas (Concluídas) =
+CALCULATE(SUM(FatoProducao[horas_planejadas]), FatoProducao[status] = "Concluída")
+Horas Realizadas (Concluídas) =
+CALCULATE(SUM(FatoProducao[horas_realizadas]), FatoProducao[status] = "Concluída")
+Utilização Horas % = DIVIDE([Horas Realizadas (Concluídas)], [Horas Planejadas (Concluídas)], 0)
