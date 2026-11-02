@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGHOST: localhost
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: postgres
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Monitor de arquivos (Python)
+        run: python -m unittest discover -s projects/monitor-arquivos -v
+
+      - name: Painel de produção (JavaScript)
+        run: node --test projects/painel-producao/metrics.test.js
+
+      - name: Consultas SQL (PostgreSQL 16)
+        run: |
+          psql -v ON_ERROR_STOP=1 -f projects/consultas-sql/schema.sql
+          psql -v ON_ERROR_STOP=1 -c "\copy fato_producao FROM 'data/ordens_producao.csv' WITH (FORMAT csv, HEADER true, ENCODING 'UTF8')"
+          psql -v ON_ERROR_STOP=1 -f projects/consultas-sql/consultas.sql > /dev/null
