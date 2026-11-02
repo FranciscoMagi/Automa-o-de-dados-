@@ -26,31 +26,39 @@ def read_state(path: Path) -> dict:
         raise SystemExit(f"Não foi possível ler o estado {path.name}: {exc}") from exc
 
 
-def inspect(path: Path, state_path: Path, log_path: Path) -> str:
+def state_key(path: Path) -> str:
+    """Nome do arquivo + hash curto do caminho: evita colisão entre arquivos homônimos de pastas
+    diferentes, sem gravar o caminho completo."""
+    where = hashlib.sha256(str(path.resolve()).encode("utf-8")).hexdigest()[:8]
+    return f"{path.name}:{where}"
+
+
+def check_file(path: Path, state_path: Path, log_path: Path) -> str:
+    """Compara o arquivo com a última referência. Retorna 'baseline', 'unchanged' ou 'changed'."""
     if not path.is_file():
         raise SystemExit(f"Arquivo não encontrado: {path}")
     current = fingerprint(path)
     state = read_state(state_path)
-    key = path.name
+    key = state_key(path)
     previous = state.get(key)
     state[key] = current
     state_path.write_text(json.dumps(state, indent=2), encoding="utf-8")
     if previous is None:
-        print(f"Referência criada para {key} ({current[:12]}).")
+        print(f"Referência criada para {path.name} ({current[:12]}).")
         return "baseline"
     if previous == current:
-        print(f"Sem alterações em {key}.")
+        print(f"Sem alterações em {path.name}.")
         return "unchanged"
     event = {
         "timestamp_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "file": key,
+        "file": path.name,
         "old_sha256": previous[:12],
         "new_sha256": current[:12],
         "event": "content_changed",
     }
     with log_path.open("a", encoding="utf-8", newline="\n") as stream:
         stream.write(json.dumps(event, ensure_ascii=False) + "\n")
-    print(f"Alteração detectada em {key}; evento salvo em {log_path.name}.")
+    print(f"Alteração detectada em {path.name}; evento salvo em {log_path.name}.")
     return "changed"
 
 
@@ -64,11 +72,14 @@ def main() -> None:
     args = parser.parse_args()
     if args.interval < 0:
         parser.error("--interval deve ser zero ou positivo")
-    while True:
-        inspect(args.file, args.state, args.log)
-        if args.once or args.interval == 0:
-            break
-        time.sleep(args.interval)
+    try:
+        while True:
+            check_file(args.file, args.state, args.log)
+            if args.once or args.interval == 0:
+                break
+            time.sleep(args.interval)
+    except KeyboardInterrupt:
+        print("\nMonitoramento encerrado.")
 
 
 if __name__ == "__main__":
