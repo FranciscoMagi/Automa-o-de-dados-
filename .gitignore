@@ -11,3 +11,5 @@ changes.jsonl
 *.pbix
 .DS_Store
 Thumbs.db
+!projects/planejamento-vba/amostras/planejamento-demo.xlsx
+node_modules/
