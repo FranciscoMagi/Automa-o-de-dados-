@@ -2,7 +2,7 @@
 
 ## Conclusão curta
 
-“Visual dos anos 90” não era uma estética única. Uma página acadêmica de 1991 podia ser quase só texto e links; uma homepage pessoal de 1996 podia ter fundo colorido ou estampado, pequenos desenhos, muitos links e uma organização própria. A tentativa anterior errou ao associar a década principalmente a um terminal escuro: o prompt `C:\>` e as linhas de monitor lembram uma interface de DOS/CRT, não uma homepage típica.
+“Visual dos anos 90” não era uma estética única. Uma página acadêmica de 1991 podia ser quase só texto e links; uma homepage pessoal de 1996 podia ter fundo colorido ou estampado, pequenos desenhos, muitos links e uma organização própria.
 
 Para este portfólio, a direção escolhida é uma **homepage pessoal de tecnologia do fim dos anos 1990**, adaptada para continuar legível hoje.
 

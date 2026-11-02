@@ -4,7 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#09051b">
-  <meta name="description" content="Portfólio de projetos de programação, automação e dados de Francisco Magi.">
+  <meta name="description" content="Portfólio de Francisco Magi: painel interativo, consultas SQL, automação em Python e macro Excel VBA, com dados fictícios e código aberto.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Francisco Magi | Projetos de automação e dados">
+  <meta property="og:description" content="Painel interativo, consultas SQL, automação em Python e Excel VBA. Dados fictícios, código aberto.">
+  <meta property="og:image" content="https://SEU-USUARIO.github.io/portfolio-automacao-dados/assets/og-preview.png">
+  <meta property="og:url" content="https://SEU-USUARIO.github.io/portfolio-automacao-dados/">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Francisco Magi | Projetos de automação e dados</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/portfolio.css">
@@ -25,7 +31,8 @@
         <a href="#inicio">Início</a>
         <a href="#projetos">Projetos</a>
         <a href="#sobre">Sobre mim</a>
-        <a href="README.md">README</a>
+        <a href="#contato">Contato</a>
+        <a href="https://github.com/SEU-USUARIO/portfolio-automacao-dados">GitHub</a>
       </nav>
     </header>
 
@@ -47,7 +54,7 @@
         </fieldset>
         <div class="side-note">
           <span class="pixel-mark" aria-hidden="true">!</span>
-          <p>Os exemplos usam dados inventados. Nenhum arquivo ou código do trabalho está aqui.</p>
+          <p>Todos os dados são fictícios.</p>
         </div>
       </aside>
 
@@ -55,8 +62,8 @@
         <section class="welcome">
           <p class="section-label">★ PORTFÓLIO PESSOAL ★</p>
           <h2>Aprendendo fazendo</h2>
-          <p>Reuni aqui quatro projetos pequenos de automação e dados. Cada um nasceu como exercício prático: tem código para explorar, instruções para reproduzir e dados fictícios para testar.</p>
-          <p class="welcome-note">Use os atalhos para ir direto a um projeto ou comece pelo painel interativo.</p>
+          <p>Reuni aqui quatro projetos pequenos de automação e dados. Cada um nasceu como exercício prático: tem código para explorar, instruções para reproduzir e testes automatizados. O painel e as consultas SQL partem dos mesmos dados, então os números batem entre as duas ferramentas.</p>
+          <p class="welcome-note">Quer ver algo funcionando? <a href="projects/painel-producao/">Abra o painel interativo</a> ou use os atalhos ao lado.</p>
         </section>
 
         <hr class="pixel-rule">
@@ -69,9 +76,9 @@
             <span class="project-id">01</span>
             <div>
               <h3>Painel de produção</h3>
-              <p>Uma página interativa lê um CSV fictício e organiza ordens por setor e situação. Dá para filtrar, buscar e acompanhar indicadores de avanço.</p>
+              <p>Uma página interativa lê um CSV fictício e calcula indicadores no navegador: avanço, ordens vencidas, entregas no prazo e horas. Dá para filtrar, buscar, ordenar a tabela e mudar a data de referência.</p>
               <p class="project-tech">Feito com: HTML, CSS, JavaScript e CSV</p>
-              <p class="project-links"><a class="project-button" href="projects/painel-producao/index.html">Abrir demonstração →</a> <a href="projects/painel-producao/README.md">Como foi feito</a></p>
+              <p class="project-links"><a class="project-button" href="projects/painel-producao/">Abrir demonstração →</a> <a href="https://github.com/SEU-USUARIO/portfolio-automacao-dados/blob/main/projects/painel-producao/README.md">Como foi feito</a></p>
             </div>
           </article>
 
@@ -79,9 +86,9 @@
             <span class="project-id">02</span>
             <div>
               <h3>Monitor de arquivos</h3>
-              <p>Uma ferramenta de linha de comando calcula o hash de um arquivo e detecta alterações. O log mantém metadados e hashes curtos, sem copiar o conteúdo.</p>
+              <p>Uma ferramenta de linha de comando calcula o hash de um arquivo e detecta alterações. O log mantém metadados e hashes curtos, sem copiar o conteúdo. Tem testes unitários.</p>
               <p class="project-tech">Feito com: Python e SHA-256</p>
-              <p class="project-links"><a class="project-button" href="projects/monitor-arquivos/README.md">Como executar →</a> <a href="projects/monitor-arquivos/monitor.py">Ver código</a></p>
+              <p class="project-links"><a class="project-button" href="https://github.com/SEU-USUARIO/portfolio-automacao-dados/blob/main/projects/monitor-arquivos/README.md">Como executar →</a> <a href="https://github.com/SEU-USUARIO/portfolio-automacao-dados/blob/main/projects/monitor-arquivos/monitor.py">Ver código</a></p>
             </div>
           </article>
 
@@ -91,7 +98,7 @@
               <h3>Planejamento semanal</h3>
               <p>Uma macro de exemplo leva itens em aberto para uma aba de planejamento e ordena os registros pela data prevista.</p>
               <p class="project-tech">Feito com: Excel VBA</p>
-              <p class="project-links"><a class="project-button" href="projects/planejamento-vba/README.md">Preparar a planilha →</a> <a href="projects/planejamento-vba/AtualizarPlanejamento.bas">Ver módulo</a></p>
+              <p class="project-links"><a class="project-button" href="https://github.com/SEU-USUARIO/portfolio-automacao-dados/blob/main/projects/planejamento-vba/README.md">Preparar a planilha →</a> <a href="https://github.com/SEU-USUARIO/portfolio-automacao-dados/blob/main/projects/planejamento-vba/AtualizarPlanejamento.bas">Ver módulo</a></p>
             </div>
           </article>
 
@@ -99,9 +106,9 @@
             <span class="project-id">04</span>
             <div>
               <h3>Consultas de produção</h3>
-              <p>Uma pequena tabela de exemplo e dez consultas para explorar volumes, prazos e horas por setor.</p>
+              <p>Uma tabela de fatos e dez consultas comentadas (agregações, CTE, funções de janela) sobre volumes, prazos e horas por setor. Os resultados foram conferidos em PostgreSQL 16 e estão registrados no repositório.</p>
               <p class="project-tech">Feito com: PostgreSQL</p>
-              <p class="project-links"><a class="project-button" href="projects/consultas-sql/README.md">Como carregar →</a> <a href="projects/consultas-sql/consultas.sql">Ver consultas</a></p>
+              <p class="project-links"><a class="project-button" href="https://github.com/SEU-USUARIO/portfolio-automacao-dados/blob/main/projects/consultas-sql/resultados.md">Ver resultados →</a> <a href="https://github.com/SEU-USUARIO/portfolio-automacao-dados/blob/main/projects/consultas-sql/consultas.sql">Ver consultas</a></p>
             </div>
           </article>
         </section>
@@ -111,14 +118,24 @@
         <section id="sobre" class="about">
           <p class="section-label">UM POUCO SOBRE MIM</p>
           <h2>Sobre este portfólio</h2>
-          <p>Tenho 25 anos e sou formado em Administração e Análise de Dados. Gosto de encontrar maneiras mais simples de organizar informações e automatizar tarefas do dia a dia. Neste portfólio, compartilho projetos práticos com Python, Excel/VBA, JavaScript e SQL, mostrando um pouco do que venho aprendendo e construindo. Os exemplos usam dados fictícios e não incluem arquivos, telas, código ou informações da empresa.</p>
-          <p><a href="docs/referencia-web-pessoal-anos-90.md">Leia as referências usadas no visual desta homepage.</a></p>
+          <p>Sou formado em Administração e Análise de Dados. Gosto de encontrar maneiras mais simples de organizar informações e automatizar tarefas do dia a dia. Neste portfólio, compartilho projetos práticos com Python, Excel/VBA, JavaScript e SQL, mostrando um pouco do que venho aprendendo e construindo. Os exemplos usam dados fictícios e não incluem arquivos, telas, código ou informações da empresa.</p>
+        </section>
+
+        <hr class="pixel-rule">
+
+        <section id="contato" class="about">
+          <p class="section-label">FALE COMIGO</p>
+          <h2>Contato</h2>
+          <ul class="contact-list">
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/SEU-LINKEDIN/">linkedin.com/in/SEU-LINKEDIN</a></li>
+            <li>GitHub: <a href="https://github.com/SEU-USUARIO">github.com/SEU-USUARIO</a></li>
+          </ul>
         </section>
       </main>
     </div>
 
     <footer class="site-footer">
-      <span>FIM DA PÁGINA · FEITO COM HTML E CSS</span>
+      <span>FIM DA PÁGINA · FEITO COM HTML E CSS · <a href="https://github.com/SEU-USUARIO/portfolio-automacao-dados/blob/main/docs/referencia-web-pessoal-anos-90.md">Sobre o visual</a></span>
       <a href="#inicio">Voltar ao começo ↑</a>
     </footer>
   </div>
