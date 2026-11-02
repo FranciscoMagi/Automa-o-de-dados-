@@ -3,106 +3,124 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0d1117">
-  <meta name="description" content="Projetos demonstrativos de automação, dados e programação de Francisco Gabriel Magi.">
-  <title>Francisco Gabriel Magi | Portfólio</title>
+  <meta name="theme-color" content="#09051b">
+  <meta name="description" content="Portfólio de projetos de programação, automação e dados de Francisco Magi.">
+  <title>Francisco Magi | Projetos de automação e dados</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/portfolio.css">
-  <script src="assets/portfolio.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#projetos">Pular para projetos</a>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="name" href="#inicio">Francisco Gabriel Magi</a>
-      <nav aria-label="Navegação principal">
+  <div class="page-shell">
+    <header class="site-header" id="inicio">
+      <div class="banner">
+        <div class="banner-copy">
+          <p class="banner-small">ARQUIVO PESSOAL / PROJETOS E ESTUDOS</p>
+          <h1>Francisco Magi</h1>
+          <p>Automação · Dados · Programação</p>
+        </div>
+        <img src="assets/pixel-computer.svg" alt="Computador retrô com uma tela verde">
+      </div>
+      <nav class="nav-buttons" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
         <a href="#projetos">Projetos</a>
-        <a href="#sobre">Sobre</a>
+        <a href="#sobre">Sobre mim</a>
         <a href="README.md">README</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <div class="status-bar" aria-label="Estado do site">
-    <span>FM://PORTFOLIO</span>
-    <span>HTML ESTÁTICO</span>
-    <span>AMOSTRAS FICTÍCIAS</span>
-  </div>
-  <main class="container">
-    <section class="intro" id="inicio">
-      <p class="eyebrow">PORTFÓLIO PESSOAL</p>
-      <h1>Automação e análise de dados</h1>
-      <p class="intro-copy">Este repositório reúne exemplos de ferramentas que venho construindo e estudando: monitoramento de arquivos, automação de planilha, um painel web e consultas SQL.</p>
-      <p class="privacy-note"><span aria-hidden="true">●</span> Os projetos abaixo são demonstrações independentes, com dados inventados. Não incluem arquivos nem código do trabalho.</p>
-    </section>
-
-    <section id="projetos" class="projects">
-      <div class="section-title">
-        <div>
-          <p class="eyebrow">CÓDIGO E DEMONSTRAÇÕES</p>
-          <h2>Projetos</h2>
+    <div class="site-layout">
+      <aside class="sidebar">
+        <nav class="side-group" aria-label="Atalhos para projetos">
+          <h2>ATALHOS</h2>
+          <a href="#painel">01 · Painel de produção</a>
+          <a href="#monitor">02 · Monitor de arquivos</a>
+          <a href="#planejamento">03 · Planejamento VBA</a>
+          <a href="#sql">04 · Consultas SQL</a>
+        </nav>
+        <fieldset>
+          <legend>FERRAMENTAS</legend>
+          <span>Python</span>
+          <span>Excel / VBA</span>
+          <span>HTML / JavaScript</span>
+          <span>PostgreSQL</span>
+        </fieldset>
+        <div class="side-note">
+          <span class="pixel-mark" aria-hidden="true">!</span>
+          <p>Os exemplos usam dados inventados. Nenhum arquivo ou código do trabalho está aqui.</p>
         </div>
-        <a class="all-code" href="README.md">Ver instruções gerais <span aria-hidden="true">↗</span></a>
-      </div>
+      </aside>
 
-      <div class="filters" role="group" aria-label="Filtrar projetos">
-        <button type="button" data-filter="all" aria-pressed="true">Todos</button>
-        <button type="button" data-filter="web" aria-pressed="false">Web</button>
-        <button type="button" data-filter="automation" aria-pressed="false">Automação</button>
-        <button type="button" data-filter="data" aria-pressed="false">Dados</button>
-      </div>
+      <main class="main-content">
+        <section class="welcome">
+          <p class="section-label">★ PORTFÓLIO PESSOAL ★</p>
+          <h2>Aprendendo fazendo</h2>
+          <p>Reuni aqui quatro projetos pequenos de automação e dados. Cada um nasceu como exercício prático: tem código para explorar, instruções para reproduzir e dados fictícios para testar.</p>
+          <p class="welcome-note">Use os atalhos para ir direto a um projeto ou comece pelo painel interativo.</p>
+        </section>
 
-      <div class="project-list">
-        <article class="project" data-category="web data">
-          <div class="project-number">01</div>
-          <div class="project-content">
-            <div class="project-title"><h3>Painel de produção</h3><span class="type">WEB · JAVASCRIPT</span></div>
-            <p>Lê um CSV local e mostra ordens fictícias. Dá para filtrar por setor e status, buscar por ordem ou produto e comparar quantidade produzida com planejada.</p>
-            <details><summary>Decisões e limites</summary><p>Sem servidor e sem bibliotecas externas. Os indicadores usam a amostra incluída no repositório; o painel não se conecta a fontes de dados reais.</p></details>
-            <div class="project-links"><a href="projects/painel-producao/index.html">Abrir demo</a><a href="projects/painel-producao/README.md">README</a><a href="projects/painel-producao/app.js">Código</a></div>
-          </div>
-        </article>
+        <hr class="pixel-rule">
 
-        <article class="project" data-category="automation">
-          <div class="project-number">02</div>
-          <div class="project-content">
-            <div class="project-title"><h3>Monitor de arquivos</h3><span class="type">PYTHON · CLI</span></div>
-            <p>Calcula SHA-256 de um arquivo e registra quando o conteúdo muda. O log guarda horário, nome do arquivo e hashes curtos, sem copiar o conteúdo monitorado.</p>
-            <details><summary>Decisões e limites</summary><p>Usa só a biblioteca padrão do Python. Esta versão acompanha um arquivo por vez e não envia alertas. O estado e o log são locais e estão no .gitignore.</p></details>
-            <div class="project-links"><a href="projects/monitor-arquivos/README.md">Como executar</a><a href="projects/monitor-arquivos/monitor.py">Código</a><a href="projects/monitor-arquivos/amostras/plano_semanal.csv">CSV de exemplo</a></div>
-          </div>
-        </article>
+        <section id="projetos" class="projects">
+          <p class="section-label">MEUS PROJETOS</p>
+          <h2>Projetos em destaque</h2>
 
-        <article class="project" data-category="automation">
-          <div class="project-number">03</div>
-          <div class="project-content">
-            <div class="project-title"><h3>Planejamento semanal</h3><span class="type">EXCEL · VBA</span></div>
-            <p>Módulo VBA de demonstração que lê uma tabela, deixa de fora as linhas concluídas e cria uma lista ordenada pela data prevista.</p>
-            <details><summary>Decisões e limites</summary><p>Precisa de uma tabela chamada <code>tbOrdens</code> na planilha <code>Entrada</code>. O repositório inclui o módulo e um CSV fictício, mas não inclui uma pasta de trabalho habilitada para macro.</p></details>
-            <div class="project-links"><a href="projects/planejamento-vba/README.md">Como preparar</a><a href="projects/planejamento-vba/AtualizarPlanejamento.bas">Módulo VBA</a><a href="projects/planejamento-vba/amostras/ordens_demo.csv">CSV de exemplo</a></div>
-          </div>
-        </article>
+          <article class="project" id="painel">
+            <span class="project-id">01</span>
+            <div>
+              <h3>Painel de produção</h3>
+              <p>Uma página interativa lê um CSV fictício e organiza ordens por setor e situação. Dá para filtrar, buscar e acompanhar indicadores de avanço.</p>
+              <p class="project-tech">Feito com: HTML, CSS, JavaScript e CSV</p>
+              <p class="project-links"><a class="project-button" href="projects/painel-producao/index.html">Abrir demonstração →</a> <a href="projects/painel-producao/README.md">Como foi feito</a></p>
+            </div>
+          </article>
 
-        <article class="project" data-category="data">
-          <div class="project-number">04</div>
-          <div class="project-content">
-            <div class="project-title"><h3>Consultas de produção</h3><span class="type">POSTGRESQL</span></div>
-            <p>Esquema de uma tabela de exemplo e dez consultas comentadas para comparar prazos, volumes e horas entre setores.</p>
-            <details><summary>O que as consultas usam</summary><p>Agrupamentos, agregações condicionais, CTE, <code>LAG</code>, ranking e funções de janela. A amostra tem 18 registros inventados.</p></details>
-            <div class="project-links"><a href="projects/consultas-sql/README.md">Como carregar os dados</a><a href="projects/consultas-sql/consultas.sql">Consultas</a><a href="projects/consultas-sql/schema.sql">Esquema</a></div>
-          </div>
-        </article>
-      </div>
-    </section>
+          <article class="project" id="monitor">
+            <span class="project-id">02</span>
+            <div>
+              <h3>Monitor de arquivos</h3>
+              <p>Uma ferramenta de linha de comando calcula o hash de um arquivo e detecta alterações. O log mantém metadados e hashes curtos, sem copiar o conteúdo.</p>
+              <p class="project-tech">Feito com: Python e SHA-256</p>
+              <p class="project-links"><a class="project-button" href="projects/monitor-arquivos/README.md">Como executar →</a> <a href="projects/monitor-arquivos/monitor.py">Ver código</a></p>
+            </div>
+          </article>
 
-    <section id="sobre" class="about">
-      <p class="eyebrow">SOBRE</p>
-      <p>Sou Francisco Gabriel Magi. Este portfólio serve para mostrar, com exemplos que podem ser reproduzidos, como trabalho com automação, planilhas, interfaces e dados.</p>
-      <p>Os exemplos são pequenos de propósito: cada pasta tem seu próprio README, os dados são fictícios e o escopo de cada projeto está documentado.</p>
-    </section>
-  </main>
+          <article class="project" id="planejamento">
+            <span class="project-id">03</span>
+            <div>
+              <h3>Planejamento semanal</h3>
+              <p>Uma macro de exemplo leva itens em aberto para uma aba de planejamento e ordena os registros pela data prevista.</p>
+              <p class="project-tech">Feito com: Excel VBA</p>
+              <p class="project-links"><a class="project-button" href="projects/planejamento-vba/README.md">Preparar a planilha →</a> <a href="projects/planejamento-vba/AtualizarPlanejamento.bas">Ver módulo</a></p>
+            </div>
+          </article>
 
-  <footer class="site-footer"><span>Francisco Gabriel Magi</span><a href="README.md">Código e instruções no README</a></footer>
+          <article class="project" id="sql">
+            <span class="project-id">04</span>
+            <div>
+              <h3>Consultas de produção</h3>
+              <p>Uma pequena tabela de exemplo e dez consultas para explorar volumes, prazos e horas por setor.</p>
+              <p class="project-tech">Feito com: PostgreSQL</p>
+              <p class="project-links"><a class="project-button" href="projects/consultas-sql/README.md">Como carregar →</a> <a href="projects/consultas-sql/consultas.sql">Ver consultas</a></p>
+            </div>
+          </article>
+        </section>
+
+        <hr class="pixel-rule">
+
+        <section id="sobre" class="about">
+          <p class="section-label">UM POUCO SOBRE MIM</p>
+          <h2>Sobre este portfólio</h2>
+          <p>Tenho 25 anos e sou formado em Administração e Análise de Dados. Gosto de encontrar maneiras mais simples de organizar informações e automatizar tarefas do dia a dia. Neste portfólio, compartilho projetos práticos com Python, Excel/VBA, JavaScript e SQL, mostrando um pouco do que venho aprendendo e construindo. Os exemplos usam dados fictícios e não incluem arquivos, telas, código ou informações da empresa.</p>
+          <p><a href="docs/referencia-web-pessoal-anos-90.md">Leia as referências usadas no visual desta homepage.</a></p>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <span>FIM DA PÁGINA · FEITO COM HTML E CSS</span>
+      <a href="#inicio">Voltar ao começo ↑</a>
+    </footer>
+  </div>
 </body>
 </html>
-

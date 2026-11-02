@@ -44,3 +44,8 @@ Para publicar o `index.html` como GitHub Pages, abra **Settings → Pages** e se
 - Cada projeto tem seu próprio README com requisitos e limitações.
 
 MIT — consulte [LICENSE](LICENSE).
+
+## Referência visual
+
+A direção da homepage e as fontes históricas estão documentadas em [docs/referencia-web-pessoal-anos-90.md](docs/referencia-web-pessoal-anos-90.md).
+
